@@ -25,3 +25,28 @@ WiFi module is based on ESP8266.
 - Management by means of AT-commands;
 - Operating temperature range: from -40 to +125 degrees Celsius;
 - The maximum communication distance is 100 meters.
+
+#### Useful AT commands
+- AT+GMR: return version info.
+- AT+RST: restart module.
+- AT+CWJAP="SSID","pwd": connect to an AP.
+- AT+CWLAP: List available APs.
+- AT+CIFSR: get local IP address.
+- AT+CWMODE?: query the Wi-Fi mode of ESP32. When working in station mode, the module is acting as a Wi-Fi enabled device connected to an existing Wi-Fi network. When working in Soft AP mode, the module is acting as host of a Wi-Fi network, to which other devices can connect.
+Here's the [list of AT commands](https://docs.espressif.com/projects/esp-at/en/latest/esp32/AT_Command_Set/Wi-Fi_AT_Commands.html).
+
+#### Sending and receiving data
+For testing, we are going to use [Thing Speak](https://thingspeak.com/) API.
+
+#### Send Data to the server
+- AT+CIPMUX=0: command configures the device for a single or multi IP connection. Value can be '0' (single IP) or '1' (multi IP).
+- AT+CIPSTART="TCP","api.thingspeak.com",80: command starts a TCP or UDP connection. Parameters: 0..7 - connection number; "TCP" or "UDP"; remote server IP address; remote server port; remote domain name.
+- AT+CIPSEND=74: command is used to send the data over the TCP or UDP connection. It should be the length of the following request + 2.
+- GET https://api.thingspeak.com/update?api_key=94QWFOP77TOLIIZJ&field1=15
+
+#### Receive Data from the server
+- AT+CIPMUX=0
+- AT+CIPSTART="TCP","api.thingspeak.com",80
+- AT+CIPSEND=95
+- GET https://api.thingspeak.com/channels/1908887/feeds.json?api_key=SJ7A4MBZIJCCDCFQ&results=3
+

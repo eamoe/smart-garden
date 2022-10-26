@@ -13,6 +13,7 @@ Output voltage boosts along with the soil moisture level increases.
 ### Wi-Fi module
 WiFi module is based on ESP8266.
 #### Specifications:
+- Brand: Espressif Systems;
 - Supply voltage: 3.3V;
 - Current in transmission mode: up to 215mA;
 - Current during reception: up to 62mA;

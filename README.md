@@ -111,3 +111,15 @@ To get readings from the BME280 sensor module we are going to use the [Adafruit_
 
 To use the BME280 library, we also need to install the [Adafruit_Sensor library](https://github.com/adafruit/Adafruit_Sensor). The library can be installed in the Arduino IDE (search request is "Adafruit Unified Sensor").
 
+## Smart Garden Java App
+
+For the app to work, it is required to import two Maven libraries for the Java files to compile:
+- org.apache.commons:commons-lang3:<version> (for StringUtils chop)
+- com.fazecast:jSerialComm:<version> for jSerialComm
+
+The app includes the following files:
+- SerialPortReader.java - the main class and main method.
+- DataController.java - the class that deals with data received from the Arduino.
+- SerialPortService.java - the class that listens to the serial port and engages DataController for processing.
+
+In the SerialPortReader.java file, it is required to set correct PORT_DESCRIPTOR and BAUD_RATE values.

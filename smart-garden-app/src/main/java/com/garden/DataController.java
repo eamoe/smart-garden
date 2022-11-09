@@ -20,7 +20,7 @@ public class DataController implements SerialPortMessageListenerWithExceptions {
         this.data.put(time, value);
     }
 
-    private static final byte[] DELIMITER = new byte[]{'\n'};
+    private static final byte[] DELIMITER = new byte[] {'\n'};
 
     @Override
     public int getListeningEvents() {

@@ -45,7 +45,7 @@ public class DataController implements SerialPortMessageListenerWithExceptions {
             System.out.println("Cannot convert Byte[] to a String.");
         }
 
-        localStorage.addData(dataString);
+        localStorage.addItem(dataString);
 
         // Print out the received data as both integer and String.
         System.out.println("Data received: " + " ... " + dataString);

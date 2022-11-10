@@ -1,5 +1,5 @@
 package com.garden;
 
 public interface LocalStorage {
-    public void addData(String data);
+    public void addItem(String data);
 }

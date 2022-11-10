@@ -16,7 +16,7 @@ public class LocalStorageMap implements LocalStorage {
     }
 
     @Override
-    public void addData(String data) {
+    public void addItem(String data) {
         if (data == null) throw new AssertionError();
         long key = System.currentTimeMillis();
         storageMap.put(key, data);

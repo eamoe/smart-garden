@@ -19,19 +19,20 @@ public class SerialPortReader {
         serialPort.addDataListener(controller);
 
         while (true) {
-            Thread.sleep(25000);
-            Map<Long, String> dataMap = localStorage.getStorageMap();
-            if (!dataMap.isEmpty()) {
-                SortedSet<Long> keys = new TreeSet<>(dataMap.keySet());
-                for (Long key : keys) {
-                    String value = dataMap.get(key);
-                    Date date = new Date(key);
-                    DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
-                    formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-                    String dateFormatted = formatter.format(date);
-                    System.out.println(dateFormatted + "   " + value);
-                    dataMap.remove(key);
-                }
+            Thread.sleep(1000);
+
+            Pair<Long, String> item = localStorage.getFirstItem();
+            Long key = item.getKey();
+            String value = item.getValue();
+
+            if (key != 0L) {
+                Date date = new Date(key);
+                DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+                formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+                String dateFormatted = formatter.format(date);
+                System.out.println(dateFormatted + "   " + value);
+
+                localStorage.removeItem(key);
             }
         }
 

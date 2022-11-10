@@ -11,13 +11,9 @@ import java.util.Map;
 
 public class DataController implements SerialPortMessageListenerWithExceptions {
 
-    private final Map<Long, Integer> data;
-    public DataController(Map<Long, Integer> dataCollection) {
-        this.data = dataCollection;
-    }
-
-    public void addData(long time, int value) {
-        this.data.put(time, value);
+    private final LocalStorage localStorage;
+    public DataController(LocalStorage localStorage) {
+        this.localStorage = localStorage;
     }
 
     private static final byte[] DELIMITER = new byte[] {'\n'};
@@ -49,16 +45,10 @@ public class DataController implements SerialPortMessageListenerWithExceptions {
             System.out.println("Cannot convert Byte[] to a String.");
         }
 
-        // Convert String into Integer
-        assert dataString != null;
-        int dataInteger = Integer.parseInt(dataString);
-
-        long time = System.currentTimeMillis();
-
-        this.addData(time, dataInteger);
+        localStorage.addData(dataString);
 
         // Print out the received data as both integer and String.
-        System.out.println("Data received: " + dataInteger + " ... " + dataString);
+        System.out.println("Data received: " + " ... " + dataString);
     }
 
     @Override

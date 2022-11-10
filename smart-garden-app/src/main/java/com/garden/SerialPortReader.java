@@ -12,20 +12,19 @@ public class SerialPortReader {
 
     public static void main(String[] args) throws InterruptedException {
 
-        Map<Long, Integer> dataMap = new HashMap<>();
+        LocalStorageMap localStorage = new LocalStorageMap();
 
-        DataController controller = new DataController(dataMap);
+        DataController controller = new DataController(localStorage);
         SerialPort serialPort = SerialPortService.getSerialPort(PORT_DESCRIPTOR, BAUD_RATE);
         serialPort.addDataListener(controller);
 
-        long now = System.currentTimeMillis();
-
         while (true) {
-            Thread.sleep(10000);
+            Thread.sleep(25000);
+            Map<Long, String> dataMap = localStorage.getStorageMap();
             if (!dataMap.isEmpty()) {
                 SortedSet<Long> keys = new TreeSet<>(dataMap.keySet());
                 for (Long key : keys) {
-                    Integer value = dataMap.get(key);
+                    String value = dataMap.get(key);
                     Date date = new Date(key);
                     DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
                     formatter.setTimeZone(TimeZone.getTimeZone("UTC"));

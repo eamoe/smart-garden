@@ -19,7 +19,7 @@ public class SerialPortReader {
         serialPort.addDataListener(controller);
 
         while (true) {
-            Thread.sleep(1000);
+            Thread.sleep(5000);
 
             Pair<Long, String> item = localStorage.getFirstItem();
             Long key = item.getKey();

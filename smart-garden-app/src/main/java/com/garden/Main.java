@@ -1,6 +1,9 @@
 package com.garden;
 
+import com.garden.datastorage.LocalStorageMap;
+import com.garden.datastorage.Pair;
 import com.garden.httpconnector.HttpURLConnector;
+import com.garden.serialport.SerialPortReader;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -13,7 +16,8 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         LocalStorageMap localStorage = new LocalStorageMap();
-        SerialPortReader.run(localStorage);
+
+        SerialPortReader.run(localStorage); // Gets data through serial port and puts it to local storage
 
         while (true) {
             Thread.sleep(20000);
@@ -27,7 +31,7 @@ public class Main {
                 DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
                 formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
                 String dateFormatted = formatter.format(date);
-                System.out.println(dateFormatted + "   " + value);
+                System.out.println(dateFormatted + " value: " + value);
 
                 HttpURLConnector connector = new HttpURLConnector("https://api.thingspeak.com/update");
                 connector.addParameter("api_key", "94QWFOP77TOLIIZJ");

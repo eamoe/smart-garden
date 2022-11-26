@@ -66,11 +66,6 @@ public class HttpURLConnector {
 
         this.setResponseCode(connection.getResponseCode());
 
-        //fullResponseBuilder.append(connection.getResponseCode())
-        //        .append(" ")
-        //        .append(connection.getResponseMessage())
-        //        .append("\n");
-
         connection.getHeaderFields()
                 .entrySet()
                 .stream()
@@ -94,7 +89,7 @@ public class HttpURLConnector {
                     fullResponseBuilder.append("\n");
                 });
 
-        Reader streamReader = null;
+        Reader streamReader;
 
         if (connection.getResponseCode() > 299) {
             streamReader = new InputStreamReader(connection.getErrorStream());

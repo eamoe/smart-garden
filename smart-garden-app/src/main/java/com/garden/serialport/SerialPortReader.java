@@ -1,10 +1,7 @@
-package com.garden;
+package com.garden.serialport;
 
 import com.fazecast.jSerialComm.SerialPort;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import com.garden.datastorage.LocalStorage;
 
 public class SerialPortReader {
     static final String PORT_DESCRIPTOR = "/dev/cu.usbmodem101"; // Replace with a correct port

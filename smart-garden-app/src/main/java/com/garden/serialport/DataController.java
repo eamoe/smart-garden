@@ -1,9 +1,10 @@
-package com.garden;
+package com.garden.serialport;
 
 import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortEvent;
 import com.fazecast.jSerialComm.SerialPortMessageListenerWithExceptions;
 
+import com.garden.datastorage.LocalStorage;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.charset.StandardCharsets;

@@ -1,4 +1,4 @@
-package com.garden;
+package com.garden.datastorage;
 
 import java.util.*;
 
@@ -8,10 +8,6 @@ public class LocalStorageMap implements LocalStorage {
 
     public LocalStorageMap() {
         storageMap = new HashMap<>();
-    }
-
-    public Map<Long, String> getStorageMap() {
-        return storageMap;
     }
 
     @Override

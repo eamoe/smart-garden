@@ -1,4 +1,4 @@
-package com.garden;
+package com.garden.datastorage;
 
 public class Pair<L, R> {
     private L key;

@@ -1,4 +1,4 @@
-package com.garden;
+package com.garden.serialport;
 
 import com.fazecast.jSerialComm.SerialPort;
 

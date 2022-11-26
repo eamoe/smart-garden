@@ -1,4 +1,4 @@
-package com.garden;
+package com.garden.datastorage;
 
 public interface LocalStorage {
     public void addItem(String data);

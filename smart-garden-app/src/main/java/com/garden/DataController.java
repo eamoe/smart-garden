@@ -7,7 +7,6 @@ import com.fazecast.jSerialComm.SerialPortMessageListenerWithExceptions;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
 
 public class DataController implements SerialPortMessageListenerWithExceptions {
 

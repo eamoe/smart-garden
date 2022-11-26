@@ -117,9 +117,20 @@ For the app to work, it is required to import two Maven libraries for the Java f
 - org.apache.commons:commons-lang3:<version> (for StringUtils chop)
 - com.fazecast:jSerialComm:<version> for jSerialComm
 
-The app includes the following files:
+The app includes the following packages:
+
+### com.garden.serialport
 - SerialPortReader.java - the main class and main method.
 - DataController.java - the class that deals with data received from the Arduino.
 - SerialPortService.java - the class that listens to the serial port and engages DataController for processing.
 
 In the SerialPortReader.java file, it is required to set correct PORT_DESCRIPTOR and BAUD_RATE values.
+
+### com.garden.httpconnector
+- HttpURLConnector.java - sends to/ receives data from the server.
+- ParameterStringBuilder.java - builds parameters string for the request.
+
+### com.garden.datastorage
+- LocalStorage.java - Interface for other local storage implementations.
+- LocalStorageMap.java - The app local storage class based on HashMap.
+- Pair.java - To store key-value pairs.

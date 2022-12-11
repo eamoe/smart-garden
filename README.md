@@ -14,6 +14,14 @@
 
 Output voltage boosts along with the soil moisture level increases.
 
+**How to use**
+
+| Function pin | Arduino interface | Description   |
+|--------------| ----------- |---------------|
+| VCC          | 2.0V ~ 5.0V | Power input   |
+| GND          | GND | Ground        |
+| AOUT         | A0 | Analog output |
+
 ---
 
 ### Wi-Fi module

@@ -24,14 +24,18 @@ public class Main {
 
             Pair<Long, String> item = localStorage.getFirstItem();
             Long key = item.getKey();
-            String value = item.getValue();
+            String valueStr = item.getValue();
 
             if (key != 0L) {
+                String[] params = valueStr.split("=");
+                String sensor = params[0];
+                String value = params[1];
+
                 Date date = new Date(key);
                 DateFormat formatter = new SimpleDateFormat("HH:mm:ss");
                 formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
                 String dateFormatted = formatter.format(date);
-                System.out.println(dateFormatted + " value: " + value);
+                System.out.println(dateFormatted + " Sensor: " + sensor + "; Value: " + value);
 
                 HttpURLConnector connector = new HttpURLConnector("https://api.thingspeak.com/update");
                 connector.addParameter("api_key", "94QWFOP77TOLIIZJ");

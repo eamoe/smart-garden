@@ -48,7 +48,7 @@ public class DataController implements SerialPortMessageListenerWithExceptions {
         localStorage.addItem(dataString);
 
         // Print out the received data as both integer and String.
-        System.out.println("Data received: " + " ... " + dataString);
+        System.out.println("Data received: " + dataString);
     }
 
     @Override
